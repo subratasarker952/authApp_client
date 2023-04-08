@@ -1,0 +1,22 @@
+.glass{
+    background: rgba(255,255, 255, 0.55);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px #4747470b;
+    backdrop-filter: blur(7.1px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    @apply border-4 border-gray-50  rounded-3xl py-20 px-7 min-w-max 
+}
+.profile_img{
+    @apply border-4 border-gray-100 w-[130px] h-[130px] object-cover rounded-full shadow-lg hover:border-gray-200 
+}
+.text_box{
+    @apply border-0 px-5 py-4 rounded-xl w-full shadow-sm text-lg focus:outline-none
+}
+
+.btn{
+    @apply border w-full bg-indigo-500 py-4 rounded-lg text-white hover:bg-indigo-700
+}
+.mr3{
+    margin-left: 10px;
+    font-size: 20px;
+}
