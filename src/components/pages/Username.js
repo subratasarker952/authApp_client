@@ -33,7 +33,7 @@ const Username = () => {
             <div className="flex justify-center items-center h-screen">
                 <div className={styles.glass}>
                     <div className="title flex flex-col items-center">
-                        <h1 className='text-5xl font-bold'>Hello Again</h1>
+                        <h1 className='text-5xl font-bold'>Sk Auth App</h1>
                         <span className='text-xl w-2/3 text-center text-gray-500 py-4'>Explore more by connecting with us</span>
                     </div>
 

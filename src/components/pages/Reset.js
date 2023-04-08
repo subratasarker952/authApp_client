@@ -6,12 +6,13 @@ import { useFormik } from 'formik';
 import { resetPasswordValidate } from '../../helper/validate';
 import { resetPassword } from '../../helper/helper';
 import { useAuthStore } from '../../store/store';
-import { Navigate } from 'react-router-dom';
 import useFetch from '../../hooks/fetch.hook';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Reset = () => {
+    const navigate = useNavigate()
 
     const [{ isLoading, status, serverError }] = useFetch('createResetSession')
 
@@ -35,13 +36,14 @@ const Reset = () => {
         validateOnChange: false,
         onSubmit: async values => {
             let resetPromise = resetPassword({ userName, password: values.password })
-            
+
             toast.promise(resetPromise, {
                 loading: "Password Updating..!",
                 success: "Password reset Successful!",
                 error: "SomeThing Went wrong"
             })
-           
+            return navigate("/password")
+
         },
     })
 
@@ -52,9 +54,9 @@ const Reset = () => {
     if (serverError) {
         return <h1 className='text-center text-3xl h-100 '>Server Error</h1>
     }
-    if (status && status !== 201) {
-        return <Navigate to={'/'} replace={true}></Navigate>
-    }
+    // if (status && status !== 201) {
+    //     return <Navigate to={'/'} replace={true}></Navigate>
+    // }
     return (
         <div className='container mx-auto'>
             <div className="flex justify-center items-center h-screen">

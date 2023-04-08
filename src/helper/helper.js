@@ -16,11 +16,11 @@ export async function registerUser(credentials) {
         const { data: { msg }, status } = await axios.post("/api/register", credentials)
         let { email, userName } = credentials
     
-        if (status === 201) {
-            await axios.post('/api/registerMail', { userName, userEmail: email, text: msg })
-            return Promise.resolve(msg)
-            // return {msg}
-        }
+        // if (status === 201) {
+        //     await axios.post('/api/registerMail', { userName, userEmail: email, text: msg })
+        //     return Promise.resolve(msg)
+        //     // return {msg}
+        // }
     } catch (error) {
 
         return Promise.reject({ error })
@@ -66,11 +66,11 @@ export async function updateUser(response) {
 export async function generateOTP(userName) {
     try {
         const { data: { code }, status } = await axios.get("/api/generateOTP", { params: { userName } })
-        if (status === 201) {
-        let { data: { email } } = await getUser({ userName })
-        let text = `Your recovery OTP is ${code}`
-        await axios.post('/api/registerMail', { userName, userEmail: email, text, subject: "password recovery otp" })
-        }
+        // if (status === 201) {
+        // let { data: { email } } = await getUser({ userName })
+        // let text = `Your recovery OTP is ${code}`
+        // await axios.post('/api/registerMail', { userName, userEmail: email, text, subject: "password recovery otp" })
+        // }
         return Promise.resolve(code)
     } catch (error) {
         return Promise.reject({ error: "Could not generate" })
